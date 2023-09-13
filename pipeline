@@ -1,0 +1,24 @@
+pipeline {
+  stages{
+    stage (code compilation){ 
+      steps{
+       "sh mvn clean compile"
+      }
+    }
+  stage (code Test){ 
+      steps{
+       "sh mvn clean test"
+      }
+    }
+  stage (code package){ 
+      steps{
+       "sh mvn clean package"
+      }
+    }
+  stage (print java version){ 
+      steps{
+       "sh java --version"
+      }
+    }
+  }
+}
