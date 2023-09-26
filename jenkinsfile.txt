@@ -29,5 +29,13 @@ pipeline{
             echo 'code packing is completed'
             }
        }
+   stage('Building & Tag Docker Image') {
+            steps {
+                echo 'Starting Building Docker Image'
+                sh 'docker build -t abdulrahmantabish/jenkinsfile.txt .'
+                sh 'docker build -t jenkinsfile.txt .'
+                echo 'Completed  Building Docker Image'
+            }
+        }
     }
 }
