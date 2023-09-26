@@ -44,5 +44,18 @@ pipeline{
                 echo 'Docker Image Scanning Started'
             }
         }
+	stage(' Upload Docker Image to Nexus') {
+           steps {
+              script {
+                 withCredentials([usernamePassword(credentialsId: 'nexuscred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD' ]){
+                 sh 'docker login http://65.0.31.136:8085/repository/redical -u admin -p ${PASSWORD}'
+                 echo "Push docker images to nexus : In Progress"
+                 sh 'docker tag redical 65.0.31.136:8085/redical:latest'
+				 sh 'docker tag redical 65.0.31.136:8085/redical'
+                 echo "Push Docker Image to Nexus : Completed"
+                 }
+              }
+           }
+        }
     }
 }
