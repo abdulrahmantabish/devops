@@ -1,7 +1,7 @@
 pipeline {
   options {buildDiscarder (logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
 }
-agent { label 'jenkinssalve-ptA' }
+agent any
 tools {
     maven 'maven_3.9.11'
 }
