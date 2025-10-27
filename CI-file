@@ -13,7 +13,7 @@ tools {
        echo 'code compilation is completed'
       }
     }
-  stage ('code Test') {
+  stage ('code Testt') {
       steps{
        echo 'code testing is starting'
        sh 'mvn clean test'
