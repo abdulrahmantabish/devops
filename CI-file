@@ -1,7 +1,7 @@
 pipeline {
   options {buildDiscarder (logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
 }
-agent { label 'jenkinssalve-ptA' }
+agent any
 tools {
     maven 'maven_3.9.11'
 }
@@ -13,14 +13,14 @@ tools {
        echo 'code compilation is completed'
       }
     }
-  stage (code Test) {
+  stage ('code Testt') {
       steps{
        echo 'code testing is starting'
        sh 'mvn clean test'
        echo 'code testing is completed'
       }
     }
-  stage (code package){
+  stage ('code package'){
       steps{
        echo 'code packaging is starting'
        sh 'mvn clean package'
