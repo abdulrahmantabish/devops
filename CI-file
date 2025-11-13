@@ -34,5 +34,12 @@ stage ('code deploy'){
        echo 'code deployiging is completed'
       }
     }
-  }
+stage ('code apply'){
+      steps{
+       echo 'code applying is starting'
+       sh 'mvn clean apply'
+       echo 'code applying is completed'
+      }
+    }
+}
 }
